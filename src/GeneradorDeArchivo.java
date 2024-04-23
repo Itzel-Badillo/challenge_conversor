@@ -7,7 +7,7 @@ import java.io.IOException;
 public class GeneradorDeArchivo {
     public void guardarJson(Moneda moneda) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        FileWriter escritura = new FileWriter(moneda.result()+".json");
+        FileWriter escritura = new FileWriter(moneda.result() + ".json");
         escritura.write(gson.toJson(moneda));
         escritura.close();
     }
