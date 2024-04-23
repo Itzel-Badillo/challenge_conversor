@@ -1,5 +1,5 @@
 <h1 align="center"> Challenge ONE Conversor de monedas - Back end </h1>
-![Imagen decorativa con fondo de flores en la cual se describe el título del repositorio](https://github.com/Itzel-Badillo/challenge_conversor/assets/157765601/2eef7105-6466-4cb0-9818-5e1ff97b347f)
+[![Challenge-ALURA-ONE.png](https://i.postimg.cc/XYRFhZLr/Challenge-ALURA-ONE.png)](https://postimg.cc/LJVng8rS)
 
 
 
