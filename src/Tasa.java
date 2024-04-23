@@ -3,9 +3,10 @@
 import java.util.Map;
 
 public class Tasa {
-    private String base;
-    private String date;
-    private Map<String, Double> conversion_rates;
+    private String base; // Representa la moneda base de las tasas de conversión
+    private String date; // Representa la fecha de la tasa de cambio
+    private Map<String, Double> conversion_rates; // Mapa que almacena las tasas de conversión para diferentes monedas
+
 
     //Getters y setters
     public String getBase() {
