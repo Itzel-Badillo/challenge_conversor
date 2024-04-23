@@ -9,10 +9,10 @@ public class Conversor {
 
     public static void main(String[] args) {
 
-            Scanner scanner = new Scanner(System.in);
-            try {
+        Scanner scanner = new Scanner(System.in); // Crea un objeto Scanner para leer la entrada del usuario
+        try {
             boolean exit = false;
-            while (!exit) {
+            while (!exit) { // Muestra el menú de opciones para la conversión de moneda
                 System.out.println("**************************************************************");
                 System.out.println("Bienvenido/a al menú de Conversión de Moneda :)");
                 System.out.println("1. Dólar a Peso colombiano");
@@ -26,8 +26,9 @@ public class Conversor {
                 System.out.println("9. Salir");
                 System.out.print("Seleccione una opción: ");
 
-                int opcion = scanner.nextInt();
+                int opcion = scanner.nextInt(); // Lee la opción seleccionada por el usuario
 
+                // Realiza la acción correspondiente según la opción seleccionada
                 switch (opcion) {
                     case 1:
                         convertir("USD", "COP");
@@ -42,19 +43,19 @@ public class Conversor {
                         convertir("CLP", "USD");
                         break;
                     case 5:
-                        convertir("USD","BRL");
+                        convertir("USD", "BRL");
                         break;
                     case 6:
                         convertir("BRL", "USD");
                         break;
                     case 7:
-                        convertir("USD","ARS");
+                        convertir("USD", "ARS");
                         break;
                     case 8:
                         convertir("ARS", "USD");
                         break;
                     case 9:
-                        exit = true;
+                        exit = true; // Termina el bucle y sale del programa
                         break;
                     default:
                         System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
@@ -62,29 +63,36 @@ public class Conversor {
                 }
             }
 
-        } catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println("Opción inválida. Por favor, ingrese un número válido.");
             scanner.nextLine();
+        } catch (IOException | InterruptedException e) {
+            System.err.println("Error al procesar la conversión: " + e.getMessage());
+        } finally {
+            scanner.close();// Cierra el Scanner para liberar recursos
         }
 
-        catch (IOException | InterruptedException e) {
-            System.err.println("Error al procesar la conversión: " + e.getMessage());
-        }
-        scanner.close();
     }
 
+    // Método para realizar la conversión de moneda
     private static void convertir(String monedaOrigen, String monedaAConvertir) throws IOException, InterruptedException {
-        double tasa = ConsultaMoneda.buscaMoneda(monedaOrigen, monedaAConvertir);
+        double tasa = ConsultaMoneda.buscaMoneda(monedaOrigen, monedaAConvertir); // Obtiene la tasa de conversión
 
-        Scanner lectura = new Scanner(System.in);
+        Scanner lectura = new Scanner(System.in); // Crea un nuevo Scanner para leer la cantidad a convertir
         System.out.println("Ingresa la cantidad a convertir: ");
-        BigDecimal monto = lectura.nextBigDecimal();
+        BigDecimal monto = lectura.nextBigDecimal(); // Lee la cantidad ingresada por el usuario
         lectura.nextLine();
 
-        BigDecimal total = monto.multiply(BigDecimal.valueOf(tasa));
+        // Validación de cantidad positiva
+        if (monto.compareTo(BigDecimal.ZERO) <= 0) {
+            System.out.println("La cantidad debe ser un número positivo.");
+            return; // Termina el método si la cantidad es negativa o cero
+        }
+
+        BigDecimal total = monto.multiply(BigDecimal.valueOf(tasa)); // Realiza la conversión de moneda
+        // Muestra el resultado de la conversión
         System.out.printf("Tasa de cambio de %s a %s: %.2f\n", monedaOrigen, monedaAConvertir, tasa);
         System.out.printf("El valor %.2f [%s] corresponde al valor final de =>>> %.2f [%s]\n", monto, monedaOrigen, total, monedaAConvertir);
     }
-
 }
 
