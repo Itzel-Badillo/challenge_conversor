@@ -15,7 +15,7 @@ Este es un programa simple de conversión de moneda implementado en Java. Permit
 - Conversión de moneda bidireccional entre Dólar y Peso argentino.
 - Interfaz de línea de comandos fácil de usar.
 
-## Requisitos del Sistema
+## :computer: Requisitos del Sistema
 
 - Java JDK 8 o superior
 - Dependencias: Gson (para el manejo de JSON), HttpClient (para realizar solicitudes HTTP)
