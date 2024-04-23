@@ -1,5 +1,6 @@
 <h1 align="center"> Challenge ONE Conversor de monedas - Back end </h1>
-[![Challenge-ALURA-ONE.png](https://i.postimg.cc/XYRFhZLr/Challenge-ALURA-ONE.png)](https://postimg.cc/LJVng8rS)
+
+![Imagen decorativa con fondo de flores en la cual se describe el título del repositorio](https://github.com/Itzel-Badillo/challenge_conversor/assets/157765601/1ec67e9e-809e-41cb-a9fb-feea2923dd00)
 
 ## Introducción
 Este es un programa simple de conversión de moneda implementado en Java. Permite al usuario convertir entre diferentes monedas como Dólar, Peso colombiano, Peso chileno, Real brasileño y Peso argentino. Utiliza una API de tasas de cambio para obtener las tasas de conversión entre diferentes monedas.
